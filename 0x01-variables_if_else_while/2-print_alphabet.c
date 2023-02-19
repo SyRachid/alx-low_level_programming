@@ -10,8 +10,9 @@ int main(void)
 	char c = 'a';
 
 	do {
-		putchar("%c", c);
+		putchar(c);
 		c++;
 	} while (c <= 'z');
-	putchar("\n");
+	putchar('\n');
+	return (0);
 }
