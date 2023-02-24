@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 /**
  * main - function to print 1 to 100 with multiple of 3 fizz
  * and multiple of 5 buzz and multiple of 15 fizzbuzz
@@ -10,9 +10,10 @@ int main(void)
 {
 	int i;
 
+
 	for (i = 1; i <= 100; i++)
 	{
-		if ((i == 100))
+		if (i == 100)
 		{
 			printf("Buzz");
 		}
