@@ -9,14 +9,12 @@
 
 char *string_toupper(char *n)
 {
-	int i;
-	int len = sizeof(n);
-	char c;
+	char *c = n;
 
-	for (i = 0; i < len; i++)
+	while (*c)
 	{
-		c = toupper(n[i]);
-		n[i] = c;
+		*c = toupper(*c);
+		c++;
 	}
 	return (n);
 }
