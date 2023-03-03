@@ -19,7 +19,7 @@ char *cap_string(char *str)
 			*p = toupper(*p);
 			cap_next = 0;
 		}
-		else if (strchr(" \t\n,;.!?\"(){}", *p))
+		else if (strchr("\t\n,;.!?\"(){}", *p))
 		{
 			cap_next = 1;
 		}
