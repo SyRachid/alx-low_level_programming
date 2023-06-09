@@ -1,4 +1,4 @@
-#include "main.h"
+i#include "main.h"
 /**
  * print_diagonal - function to print in the terminal a diagnonal
  *
