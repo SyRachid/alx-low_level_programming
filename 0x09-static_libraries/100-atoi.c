@@ -1,10 +1,11 @@
 #include "main.h"
-#include <stdlib.h> 
+#include <stdlib.h>
 /**
- * atoi - function to transform string to int
+ * _atoi - function to transform string to int
  *
- * @c: string to convert
+ * @s: string to convert
  *
+ * Return: nume -pointer to int
  */
 int *_atoi(char *s)
 {
