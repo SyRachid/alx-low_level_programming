@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _strdup- function wich return a pointer to the new value of strin
+ * _strdup- function to duplicatepointer to string
  *
- * @str-pointer of string
+ * @str:pointer to string
  *
- * Return: pointer to string
+ * Return: ptr
  */
 char *_strdup(char *str)
 {
