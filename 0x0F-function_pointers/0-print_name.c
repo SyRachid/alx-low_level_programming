@@ -12,7 +12,14 @@ void print_name(char *name, void (*f)(char *))
 {
 	void (*func)(char *);
 
+	if (name == NULL)
+	{
+		return;
+	}
+	if (f == NULL)
+	{
+		return;
+	}
 	func = f;
 	func(name);
 }
-
