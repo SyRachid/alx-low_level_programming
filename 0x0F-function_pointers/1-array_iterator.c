@@ -16,6 +16,14 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 	void (*func)(int);
 	unsigned int i;
 
+	if (array == NULL)
+	{
+		return;
+	}
+	if (action == NULL)
+	{
+		return;
+	}
 	func = action;
 	for (i = 0; i < size; i++)
 	{
