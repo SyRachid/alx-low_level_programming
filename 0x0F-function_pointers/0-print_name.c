@@ -1,25 +1,17 @@
 #include "function_pointers.h"
+#include <stdio.h>
 /**
- * print_name-function that print pointer
- *
- * @name:pointer to char
- *
- * @f:function to pointer
- *
- * Return:Nothing
- */
+* print_name - Function to call a function
+* @name: Parameter 1
+* @f: parameter function
+*/
 void print_name(char *name, void (*f)(char *))
 {
-	void (*func)(char *);
-
-	if (name == NULL)
+	if (f != NULL)
 	{
-		return;
+		if (name != NULL)
+		{
+			(*f)(name);
+		}
 	}
-	if (f == NULL)
-	{
-		return;
-	}
-	func = f;
-	func(name);
 }
