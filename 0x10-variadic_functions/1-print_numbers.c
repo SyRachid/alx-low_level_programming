@@ -31,11 +31,18 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 				printf("%d", x);
 			}
 		}
-		else
+		else if (separator == NULL)
 		{
-			printf("%d ", x);
+			if (i != (n - 1))
+			{
+				printf("%d ", x);
+			}
+			else
+			{
+				printf("%d", x);
+			}
 		}
 	}
-		printf("\n");
-		va_end(args);
+	printf("\n");
+	va_end(args);
 }
