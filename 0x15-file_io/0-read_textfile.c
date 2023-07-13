@@ -1,42 +1,44 @@
 #include "main.h"
+#include <unistd.h>
+#include <string.h>
 /**
-* read_textfile - read a textfile.
-* @filename: name of the file to open.
-* @letters: number of letters to print in the standar ouput.
-*Return: number of letter printed.
-*/
-
+ * read_textfile- function that reads a textfile and prints it to the POSIX
+ *
+ * @filename: the pointer to the file
+ *
+ * @letters: the number of letters to print
+ *
+ * Return:nothing
+ */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-int fd_read, count_chars, fd_open;
-char *buf_letters;
-if (filename == NULL)
-{
-return (0);
-}
-fd_open = open(filename, O_RDONLY);
-if (fd_open == -1)
-{
-return (0);
-}
-buf_letters = malloc(sizeof(char) * letters);
-if (buf_letters == NULL)
-{
-return (0);
-}
-fd_read = read(fd_open, buf_letters, letters);
-if (fd_read == -1)
-{
-free(buf_letters);
-return (0);
-}
-count_chars = write(STDOUT_FILENO, buf_letters, fd_read);
-if (count_chars == -1)
-{
-free(buf_letters);
-return (0);
-}
-close(fd_open);
-free(buf_letters);
-return (count_chars);
+	FILE *file;
+	char *ch = (char *)malloc((letters + 1) * sizeof(char));
+	ssize_t bytesRead, bytesWritten;
+
+	if (filename == NULL)
+		return (0);
+	file = fopen(filename, "r");
+	if (file == NULL)
+		return (0);
+	if (ch == NULL)
+	{
+		fclose(file);
+		return (0);
+	}
+	bytesRead = fread(ch, sizeof(char), letters, file);
+	if (bytesRead <= 0)
+	{
+			free(ch);
+			fclose(file);
+			return (0);
+	}
+	ch[bytesRead] = '\0';
+	bytesWritten = printf("%s", ch);
+	free(ch);
+	fclose(file);
+	if (bytesWritten != bytesRead)
+		return (0);
+	return (bytesWritten);
+
 }
